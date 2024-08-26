@@ -4,19 +4,19 @@ import Product from "./Product"
 const Productlist =()=>{
  return(
     <>
-    <div className=" hidden md:grid grid-cols-5 py-5 pl-8 justify-center gap-1 ">
+    <div className="hidden sm:grid sm:grid-cols-5 sm:py-5 sm:pl-8 sm:justify-center sm:gap-1 ">
         <Product/>
         <Product/>
         <Product/>
         <Product/>
         <Product/>
     </div>
-    <div className=" grid grid-cols-3 md:hidden py-5 px-7 justify-center gap-2 ">
+   
+    <div className="grid grid-cols-2 justify-center items-center py-5 pl-[8%] gap-3 sm:hidden mx-auto">
+        <Product />
+        <Product />
+    </div>
 
-        <Product/>
-        <Product/>
-        <Product/>
-    </div>
     </>
     
  )
