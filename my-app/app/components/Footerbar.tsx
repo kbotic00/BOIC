@@ -40,10 +40,10 @@ const Footerbar = () => {
       
           {/* Column 4 - Social Icons */}
           <div className="flex pl-12 flex-row md:flex-col w-60 md:w-auto ">
-            <Image src="/frame 147.png" alt="" width={28} height={28} className="hover:text-white pr-22"></Image>
-            <Image src="/frame 148.png" alt="" width={28} height={28} className="hover:text-white"></Image>
-            <Image src="/frame 151.png" alt="" width={28} height={28} className="hover:text-white"></Image>
-            <Image src="/frame 152.png" alt="" width={28} height={28} className="hover:text-white"></Image>
+            <Image src="/frame147.png" alt="" width={28} height={28} className="hover:text-white pr-22"></Image>
+            <Image src="/frame148.png" alt="" width={28} height={28} className="hover:text-white"></Image>
+            <Image src="/frame151.png" alt="" width={28} height={28} className="hover:text-white"></Image>
+            <Image src="/frame152.png" alt="" width={28} height={28} className="hover:text-white"></Image>
             
           </div>
         </div>
