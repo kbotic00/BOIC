@@ -1,8 +1,10 @@
 // GraphQL query to fetch products
 const gqlAllProductsQuery = `query ProductList {
-  ProductBoxCollection {
+  probaproductCollection {
     items {
+      sys{
       id
+      }
       name
       shortDescription
     }
@@ -11,7 +13,7 @@ const gqlAllProductsQuery = `query ProductList {
 
 // Interfaces for the Contentful response structure
 interface ProductCollectionResponse {
-  ProductBoxCollection: {
+  probaproductCollection: {
     items: Product[];
   };
 }
@@ -49,12 +51,12 @@ export const fetchProducts = async (): Promise<Product[]> => {
     const json: { data: ProductCollectionResponse } = await response.json();
 
     // Check if data is available in the response
-    if (!json.data || !json.data.ProductBoxCollection || !json.data.ProductBoxCollection.items) {
+    if (!json.data || !json.data.probaproductCollection || !json.data.probaproductCollection.items) {
       throw new Error("Invalid data structure returned from Contentful");
     }
 
-    // Return the items from the ProductBoxCollection
-    return json.data.ProductBoxCollection.items;
+    // Return the items from the probaproductCollectionCollection
+    return json.data.probaproductCollection.items;
   } catch (error) {
     console.error("Error fetching products:", error);
     return []; // Return an empty array in case of error
