@@ -2,9 +2,7 @@
 const gqlAllProductsQuery = `query ProductList {
   ProductBoxCollection {
     items {
-      sys {
-        id
-      }
+      id
       name
       shortDescription
     }
@@ -19,9 +17,7 @@ interface ProductCollectionResponse {
 }
 
 interface Product {
-  sys: {
-    id: string;
-  };
+  id: string
   name: string;
   shortDescription: string;
 }
