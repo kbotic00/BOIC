@@ -18,7 +18,7 @@ const Productlist =()=>{
         <Product/>
     </div>
 
-    <div className="grid grid-cols-2 justify-center items-center py-5 pl-[8%] gap-3 sm:hidden mx-auto">
+    <div className="grid grid-cols-2 justify-center items-center py-5 pl-[6%] gap-3 sm:hidden mx-auto">
         <Product />
         <Product />
     </div>
