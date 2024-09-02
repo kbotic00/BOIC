@@ -28,11 +28,9 @@ const Navbar = () => {
           </Link>
           <div className="hidden md:flex gap-4">
             <Link href="/">Home</Link>
-            <Link href="/list">Žene</Link>
-            <Link href="/list">Muškarci</Link>
-            <Link href="/list">Djeca</Link>
-            <Link href="/list">Sale</Link>
-            <Link href="/">About</Link>
+            <Link href="/list">Shop</Link>
+            <Link href="/sale">Sale</Link>
+            <Link href="/about">About</Link>
           </div>
         </div>
         {/* RIGHT */}

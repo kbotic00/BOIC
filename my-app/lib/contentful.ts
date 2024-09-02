@@ -1,4 +1,5 @@
 // GraphQL query to fetch products
+
 const gqlAllProductsQuery = `query ProductList {
   probaproductCollection {
     items {
@@ -7,6 +8,23 @@ const gqlAllProductsQuery = `query ProductList {
       }
       name
       shortDescription
+      color
+      price
+      brand
+      description
+      gender
+      mainPhoto{
+        url
+      }
+      image2 {
+        url
+      }
+      image3 {
+        url
+      } 
+      image4 {
+        url
+      } 
     }
   }
 }`;
@@ -22,7 +40,26 @@ interface Product {
   id: string
   name: string;
   shortDescription: string;
+  color:string;
+  price:string;
+  brand:string;
+  description:string;
+  gender: string;
+  mainPhoto:{
+    url:string;
+  };
+  image2: {
+    url: string;
+  };
+  image3: {
+    url: string;
+  };
+  image4: {
+    url: string;
+  };
+  
 }
+
 
 // Contentful access credentials
 const CONTENTFUL_ACCESS_TOKEN = "_Rk0GAc8LKqdTqE1CuvzRlJPBagqRqR-PgprO_AoZxU";

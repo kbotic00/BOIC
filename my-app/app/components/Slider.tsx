@@ -20,16 +20,9 @@ const slides =[
         url:"/",
         bg:"bg-gradient-to-r from red-50 to gray-50"
        },
+  
     {
         id:3,
-        title: "Kids                             Collection",
-        description:"",
-        img:"https://images.pexels.com/photos/5325599/pexels-photo-5325599.jpeg?auto=compress&cs=tinysrgb&w=600",
-        url:"/",
-        bg:"bg-gradient-to-r from red-50 to gray-50"
-       },
-    {
-        id:4,
         title: "Sale Collection",
         description:"Sale! Up to 50% off!",
         img:"https://images.pexels.com/photos/26178670/pexels-photo-26178670/free-photo-of-person-wearing-gold-bracelet-tying-white-shoes.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -41,15 +34,6 @@ const slides =[
     
 const Slider = () => {
     const [current, setCurrent] = useState(0);
-  
-    // useEffect(() => {
-    //   const interval = setInterval(() => {
-    //     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    //   }, 3000);
-  
-    //   return () => clearInterval(interval);
-    // }, []);
-  
     return (
       <div className="h-[calc(100vh-80px)] overflow-hidden z-0">
         <div

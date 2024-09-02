@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { fetchProducts } from "../../lib/contentful"; // Ensure fetchProducts is correctly implemented
+import Producttext from "../components/Producttext";
 
 // Image data array
 const images = [
@@ -88,23 +89,12 @@ const SinglePage = () => {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Text Container */}
-      <div className="w-full lg:w-1/2">
-        {loading && <p>Loading products...</p>}
-        {error && <p className="text-red-500">{error}</p>}
-        {!loading && !error && products.length > 0 ? (
-          products.map((product) => (
-            <div key={product.id} className="mb-6">
-              <h2 className="text-2xl font-bold">{product.name}</h2>
-              <p className="text-gray-600">{product.shortDescription}</p>
-            </div>
-          ))
-        ) : (
-          !loading && <p>No products available.</p>
-        )}
       </div>
+      <div className="w-1/2">
+      <Producttext></Producttext>
+      </div>
+      
     </div>
   );
 };

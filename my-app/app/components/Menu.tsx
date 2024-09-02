@@ -15,13 +15,11 @@ const Menu = () => {
         {open && (
             <div className="absolute bg-black text-white left-0 top-20 w-full h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-8 text-xl z-3">
                 <Link href="/">Homepage</Link>
-                <Link href="/">Žene</Link>
-                <Link href="/">Muškarci</Link>
-                <Link href="/">Djeca</Link>
-                <Link href="/">Sale</Link>
-                <Link href="/">About</Link>
+                <Link href="/list/page.tsx">Shop</Link>
+                <Link href="/sale/page.tsx">Sale</Link>
+                <Link href="/about/page.tsx">About</Link>
                 <Link href="/">Logout</Link>
-                <Link href="/">Cart(1)</Link>
+                <Link href="/">Cart</Link>
             </div>
 
         )}

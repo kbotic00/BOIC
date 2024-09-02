@@ -1,0 +1,273 @@
+.heading {
+    color: #252525;
+    font-family: "Montserrat";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+    letter-spacing: 3.84px;
+    text-transform: uppercase;
+    padding-top: 7%;
+    padding-bottom:60px;
+    padding-left: 15%;
+}
+.mainContainer{
+    position: relative;
+    background-color: #F6F6F6;
+    padding-bottom:100px;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.element{
+    display:flex;
+    border-radius: 22px;
+    background: #E6E6E6;
+    flex-direction:row;
+    justify-content: flex-start;
+    width:1130px;
+    padding:10px;
+}
+
+.number{
+    color: #252525;
+    font-family: "Inter";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 107.143% */
+    letter-spacing: 0.2px;
+   
+    align-items: center;
+    justify-content: center;
+    padding-top:10px;
+    padding-left:30px;
+    padding-right:30px;
+}
+.fullQuestion{
+    display:flex;
+    flex-direction:column;
+    padding: 7px;
+    gap:10px;
+}
+.question{
+    color: #252525;
+    font-family: "PP Neue Montreal";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 125% */
+    letter-spacing: 0.2px;
+}
+.answer{
+    color: #252525;
+    font-family: "PP Neue Montreal";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: 0.2px;
+}
+@media (max-width:750px) {
+    .heading {
+        color: #252525;
+        font-family: "Inter";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 52px;
+        letter-spacing: 3.84px;
+        text-transform: uppercase;
+        padding-top: 7%;
+        padding-bottom:60px;
+        padding-left: 15%;
+    }
+    
+
+    .element{
+    display:flex;
+    border-radius: 22px;
+    background: #E6E6E6;
+    flex-direction:row;
+    justify-content: flex-start;
+    width:380px;
+    padding:10px;
+    }
+    .number{
+        color: #252525;
+        font-family: Montserrat;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 107.143% */
+        letter-spacing: 0.2px;
+    
+        align-items: center;
+        justify-content: center;
+        padding-top:10px;
+        padding-left:30px;
+        padding-right:30px;
+    }
+    .fullQuestion{
+        display:flex;
+        flex-direction:column;
+        padding: 7px;
+        gap:10px;
+    }
+    .question{
+        color: #252525;
+        font-family: "PP Neue Montreal";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 125% */
+        letter-spacing: 0.2px;
+    }
+    .answer{
+        color: #252525;
+        font-family: "PP Neue Montreal";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px; /* 133.333% */
+        letter-spacing: 0.2px;
+    }
+}
+@media (min-width:752px) and (max-width:1150px) {
+
+    .element{
+    display:flex;
+    border-radius: 22px;
+    background: #E6E6E6;
+    flex-direction:row;
+    justify-content: flex-start;
+    width:600px;
+    padding:10px;
+    }
+    .number{
+        color: #252525;
+        font-family: "Inter";
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 107.143% */
+        letter-spacing: 0.2px;
+       
+        align-items: center;
+        justify-content: center;
+        padding-top:10px;
+        padding-left:30px;
+        padding-right:30px;
+    }
+    .fullQuestion{
+        display:flex;
+        flex-direction:column;
+        padding: 7px;
+        gap:10px;
+    }
+    .question{
+        color: #252525;
+        font-family: "PP Neue Montreal";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 125% */
+        letter-spacing: 0.2px;
+    }
+    .answer{
+        color: #252525;
+        font-family: "Montserrat";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px; /* 137.5% */
+        letter-spacing: 0.2px;
+    }
+}
+
+
+@media (min-width:1150px) {
+    .element {
+        display: flex;
+        border-radius: 22px;
+        background: #f6f6f6;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 1138px;
+        padding: 0px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .element.active {
+        background-color: #E6E6E6; /* Siva pozadina za aktivno stanje */
+    }
+
+    .box {
+        display: flex;
+        justify-content: space-between; /* Razmak između broja i pitanja */
+        border-radius: 22px;
+        flex-direction: row;
+        width: 100%;
+        padding: 40px 30px;
+        align-items: baseline; /* Poravnanje elemenata po sredini vertikalno */
+        box-sizing: border-box;
+    }
+    
+    .expand.active {
+        transform: rotate(45deg); /* Rotacija za "+" kada je aktivno */
+    }
+    
+    .answer {
+        display: none; /* Sakrij odgovore po defaultu */
+        padding: 0 20px 50px 146px; /* Dodan padding ispod za odgovor */
+        font-family: "Montserrat";
+        font-size: 18px;
+        line-height: 28px;
+        width: 800px;
+    }
+    
+    .element.active .answer {
+        display: block; /* Prikaži odgovor kada je element aktivan */
+    }
+    
+    .number {
+        color: #252525;
+        font-family: "Montserrat";
+        font-size: 28px;
+        font-weight: 400;
+        margin-right: 20px; /* Razmak između broja i pitanja */
+        display: flex;
+        align-items: center; /* Vertikalno centriranje */
+    }
+    
+    .fullQuestion {
+        flex-grow: 1; /* Pitanje zauzima preostali prostor */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .question {
+        color: #252525;
+        font-family: "Montserrat";
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 30px; /* 125% */
+        letter-spacing: 0.2px;
+    }
+    
+    .expand {
+        color: #252525;
+        font-family: "Montserrat";
+        font-size: 26px;
+        font-weight: 400;
+        display: flex;
+        align-items: center; /* Vertikalno centriranje */
+        justify-content: center; /* Horizontalno centriranje */
+        transition: transform 0.3s ease; /* Dodana tranzicija za rotaciju */
+    }
+}
