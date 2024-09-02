@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const Footerbar = () => {
     return (
-        <div className="bg-black text-white py-20 md:px-8 lg:px-16 xl:32 2xl:px-64 text-sm  ">
+        <div className="bg-black text-white py-20 md:px-8 lg:px-10 xl:32 2xl:px-32 text-sm  ">
         <div className="flex flex-col md:gap-10 mb-10 md:flex-row md:justify-around items-center justify-center gap-8 p-4">
           {/* Column 1 - Informacije */}
           <div className=" w-60 md:w-auto pl-12">

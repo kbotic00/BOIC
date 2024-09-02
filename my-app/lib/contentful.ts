@@ -1,10 +1,11 @@
-// GraphQL query to fetch products
+// lib/contentful.ts
 
+// GraphQL query to fetch all products
 const gqlAllProductsQuery = `query ProductList {
   probaproductCollection {
     items {
-      sys{
-      id
+      sys {
+        id
       }
       name
       shortDescription
@@ -13,7 +14,7 @@ const gqlAllProductsQuery = `query ProductList {
       brand
       description
       gender
-      mainPhoto{
+      mainPhoto {
         url
       }
       image2 {
@@ -21,10 +22,38 @@ const gqlAllProductsQuery = `query ProductList {
       }
       image3 {
         url
-      } 
+      }
       image4 {
         url
-      } 
+      }
+    }
+  }
+}`;
+
+// GraphQL query to fetch a single product by ID
+const gqlSingleProductQuery = `query ProductDetails($id: String!) {
+  probaproduct(id: $id) {
+    sys {
+      id
+    }
+    name
+    shortDescription
+    color
+    price
+    brand
+    description
+    gender
+    mainPhoto {
+      url
+    }
+    image2 {
+      url
+    }
+    image3 {
+      url
+    }
+    image4 {
+      url
     }
   }
 }`;
@@ -37,65 +66,81 @@ interface ProductCollectionResponse {
 }
 
 interface Product {
-  id: string
+  id: string;
   name: string;
   shortDescription: string;
-  color:string;
-  price:string;
-  brand:string;
-  description:string;
+  color: string;
+  price: number;
+  brand: string;
+  description: string;
   gender: string;
-  mainPhoto:{
-    url:string;
-  };
-  image2: {
+  mainPhoto?: {
     url: string;
   };
-  image3: {
+  image2?: {
     url: string;
   };
-  image4: {
+  image3?: {
     url: string;
   };
-  
+  image4?: {
+    url: string;
+  };
 }
-
 
 // Contentful access credentials
 const CONTENTFUL_ACCESS_TOKEN = "_Rk0GAc8LKqdTqE1CuvzRlJPBagqRqR-PgprO_AoZxU";
 const CONTENTFUL_SPACE_ID = "vr5txujp0elk";
 
-// Function to fetch products from Contentful
+// Base URL for Contentful GraphQL API
+const GRAPHQL_API_URL = `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/master`;
+
+// Function to fetch all products from Contentful
 export const fetchProducts = async (): Promise<Product[]> => {
   try {
-    const response = await fetch(
-      `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/master`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${CONTENTFUL_ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query: gqlAllProductsQuery }),
-      }
-    );
+    const response = await fetch(GRAPHQL_API_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${CONTENTFUL_ACCESS_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: gqlAllProductsQuery }),
+    });
 
-    // Check if the response is OK
     if (!response.ok) {
       throw new Error(`Failed to fetch products: ${response.statusText}`);
     }
 
     const json: { data: ProductCollectionResponse } = await response.json();
 
-    // Check if data is available in the response
-    if (!json.data || !json.data.probaproductCollection || !json.data.probaproductCollection.items) {
-      throw new Error("Invalid data structure returned from Contentful");
-    }
-
-    // Return the items from the probaproductCollectionCollection
     return json.data.probaproductCollection.items;
   } catch (error) {
     console.error("Error fetching products:", error);
     return []; // Return an empty array in case of error
+  }
+};
+
+// Function to fetch a single product by ID
+export const fetchProductById = async (id: string): Promise<Product | null> => {
+  try {
+    const response = await fetch(GRAPHQL_API_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${CONTENTFUL_ACCESS_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: gqlSingleProductQuery, variables: { id } }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch product: ${response.statusText}`);
+    }
+
+    const json: { data: { probaproduct: Product | null } } = await response.json();
+
+    return json.data.probaproduct || null;
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return null; // Return null in case of error
   }
 };

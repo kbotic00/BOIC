@@ -60,25 +60,15 @@ const ListPage = () => {
 
   return (
     <div className='px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative bg-customGray text-black'>
-      <div className="hidden p-4 sm:flex justify-between h-64 pl-10 pt-5">
-        <div className="relative w-1/3">
-          <Image src="/pngwing.com.png" alt="Seasonal Discount" layout="fill" className="object-contain pl-30 text-customRed" />
-        </div>
-        <div className="w-2/3 flex flex-col items-center justify-center gap-8">
-          <h1 className="text-xl md:text-4xl font-semibold leading-[32px] pl-10 md:leading-[48px] text-gray-700">
-            Sezonsko sniženje do 50%<br />uskoro od 15.09
-          </h1>
-        </div>
-      </div>
+      
       <Filter />
-
-      <div className="grid grid-cols-2 justify-center items-center py-5 pl-[9%] gap-3 sm:grid-cols-3 sm:pt-5 sm:pb-7 sm:pl-[9%] sm:justify-center sm:gap-1 sm:gap-y-5 gap-y-4 md:grid-cols-5 md:pt-10 md:pb-9 md:pl-4 md:justify-center md:gap-2 md:gap-y-8">
+      <div className="grid grid-cols-2 justify-center items-center py-5 pl-[9%] gap-3 sm:grid-cols-3 sm:mt-5 sm:pb-7 sm:pl-[9%] sm:justify-center sm:gap-1 sm:gap-y-5 gap-y-4 md:grid-cols-5 md:mt-10 md:pb-9 md:pl-4 md:justify-center md:gap-2 md:gap-y-8">
         {loading && <p>Loading products...</p>}
         {error && <p className="text-red-500">{error}</p>}
         {!loading && !error && products.length > 0 ? (
           products.map((product) => (
             <div key={product.id} className="w-[150px] sm:w-[130px] lg:w-[170px] flex gap-x-8 gap-y-16 justify-between flex-wrap relative rounded-3xl shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-              <Link href="/test" className="full flex flex-col sm:w-[45%] lg:w-[22%]">
+              <Link href={product.id} className="full flex flex-col sm:w-[45%] lg:w-[22%]">
                 <div className="mb-6">
                   <div className="relative w-[150px] sm:w-[130px] lg:w-[170px] h-[140px]">
                     <Image
