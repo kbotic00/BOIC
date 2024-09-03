@@ -1,39 +1,65 @@
-"use client"
-import { useEffect, useState } from 'react';
-import Image from "next/image"
-import Link from "next/link"
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 
-const Product = () => {
+export interface Product {
+  id: string;
+  name: string;
+  shortDescription: string;
+  description: string;
+  price: number;
+  mainPhoto?: {
+    url: string;
+  };
+  image2?: {
+    url: string;
+  };
+  image3?: {
+    url: string;
+  };
+  image4?: {
+    url: string;
+  };
+}
 
-    return (
-        <>
-        <div className=" w-[130px] lg:w-[170px]  flex gap-x-8 gap-y-16 justify-between flex-wrap relative rounded-3xl shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+interface ProductProps {
+  product: Product;
+}
 
-        <Link href="/test" className=" full flex flex-col  sm:w-[45%] lg:w-[22%]">
-            <div>
-                {/*slika  */}
-                <div className=" relative  w-[130px] lg:w-[170px]  h-[163px] ">
-                <Image src="/smallImage3.png"  alt="" fill  sizes="25vw" className="absolute object-cover rounded-3xl z-10 hover:opacity-0 transition-opacity easy duration-500 w-[215px] h-[214px]"/>
-                <Image src="/smallImage3.png" alt="" fill  sizes="25vw" className="absolute object-cover rounded-3xl w-[215px] h-[214px] bg-slate-200"/> 
-                </div>
-                <div className="h-20 flex-col justify-start items-start gap-2 inline-flex bg-slate- w-[209px] px-2 py-1">
-                    <div className="flex-col justify-start items-start flex">
-                        <div className="text-center text-[#212121] text-sm font-semibold font-['Montserrat']">Nike Air Force ‘07</div>
-                        <div className="text-center text-[#7a7981] text-xs font-medium font-['Montserrat']">Men’s Shoes</div>
-                    </div>
-                    <div className="relative w-[209px] py-2 flex flex-row">
-                        <div  className="left-1  absolute text-center text-[#212121] text-xs font-semibold font-['Montserrat'] ">€ 119.99</div>
-                        <div className="left-[55px] absolute text-center text-[#7a7981] text-xs font-medium font-['Montserrat'] ">(820 kn)</div>
-                    </div>
-                </div>
-                     
-            </div> 
-        </Link>
+const Product: FC<ProductProps> = ({ product }) => {
+  return (
+    <div className="w-[210px] bg-white rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] overflow-hidden">
+      <Link href={`../${product.id}`} className="flex flex-col text-left">
+        {/* Image */}
+        <div className="relative w-full h-[140px] rounded-2xl overflow-hidden">
+          <Image
+            src={product.mainPhoto?.url || "/placeholder.png"}
+            alt={product.name}
+            fill
+            style={{ objectFit: "cover" }}
+            className="w-full h-full rounded-2xl"
+          />
         </div>
-    
-        </>
-    
-    )
-  }
-  
-  export default Product
+        <div className="p-4 flex flex-col gap-1 w-full">
+          <div className="text-[#212121] text-sm font-semibold">
+            {product.name}
+          </div>
+          <div className="text-[#7a7981] text-xs font-medium">
+            {product.shortDescription}
+          </div>
+          <div className="flex flex-col items-start mt-2">
+            <div className="text-[#212121] text-sm font-semibold">
+              € {product.price.toFixed(2)}
+            </div>
+            <div className="text-[#7a7981] text-xs font-medium">
+              ({(product.price * 7.53).toFixed(2)} kn)
+            </div>
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
+export default Product;

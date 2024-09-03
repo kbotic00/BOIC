@@ -13,11 +13,11 @@ const Menu = () => {
         
         <Image src ="/menu.png" alt="" width={28} height={28} className="cursor-pointer" onClick={()=>SetOpen((prev)=>!prev)} />
         {open && (
-            <div className="absolute bg-black text-white left-0 top-20 w-full h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-8 text-xl z-3">
+            <div className="absolute bg-black text-white left-0 top-20 w-full h-[calc(100vh-90px)] flex flex-col items-center justify-center gap-8 text-xl z-3">
                 <Link href="/">Homepage</Link>
-                <Link href="/list/page.tsx">Shop</Link>
-                <Link href="/sale/page.tsx">Sale</Link>
-                <Link href="/about/page.tsx">About</Link>
+                <Link href="/list">Shop</Link>
+                <Link href="/sale">Sale</Link>
+                <Link href="/about">About</Link>
                 <Link href="/">Logout</Link>
                 <Link href="/">Cart</Link>
             </div>

@@ -83,7 +83,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             alt={`Product image ${index + 1}`}
             fill
             sizes="50vw"
-            className="object-cover rounded-md"
+            className="object-cover rounded-md "
           />
         </div>
         <div className="flex justify-between gap-4 cursor-pointer mt-8">
